@@ -11,6 +11,6 @@ sudo service nginx restart
 echo "Database connetion"
 su - postgres -c "psql -c \"create database dbspt;\""
 su - postgres -c "psql -c \"\\connect dbspt\""
-su - postgres -c "psql -c \"create table tabspt (name varchar(20), first varchar(20), last varchar(20), phone varchar(20), email varchar(20), pdf varchar(20), src varchar(20), url varchar(20), social varchar(20), github varchar(20), twitter varchar(20), linkedin varchar(20));\""
-su - postgres -c "psql -c \"select * from tabspt;\""
+su - postgres -c "psql -c \"create table tabshell (name varchar(20), first varchar(20), last varchar(20), phone varchar(20), email varchar(20), pdf varchar(20), src varchar(20), url varchar(20), social varchar(20), github varchar(20), twitter varchar(20), linkedin varchar(20));\""
+su - postgres -c "psql -c \"select * from tabshell;\""
 
