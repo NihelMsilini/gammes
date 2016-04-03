@@ -15,21 +15,22 @@ su - postgres -c "psql -c \"select * from tabshell;\""
 
 tabsh=( $( awk -F ":" '{print $1}' formulaire.yaml) )
 l=${#tabsh[@]}
-ch="create table tab1("
+ch="create table tab21("
 i=0
 while [ "$i" -lt "$(($l-1))" ]
 do
 ch="$ch ${tabsh[$i]} varchar(50),"
 ((i++))
 done
-ch="$ch ${tabsh[${#tabsh[@]}-1]} varchar(50)"
-
+ch="$ch ${tabsh[${#tabsh[@]}-1]} varchar(50));"
+echo "$ch"
 su - postgres -c "psql -c \" $ch\""
-su - postgres -c "psql -c \" select * from tab1\""
+
+su - postgres -c "psql -c \" select * from tab21\""
 
 tabsh2=( $( awk -F ":" '{print $2}' formulaire.yaml) )
 l2=${#tabsh2[@]}
-ch2="insert into tab1 values ( '"
+ch2="insert into tab21 values ( '"
 z=0
 while [ "$z" -lt "$(($l2-1))" ]
 do
@@ -39,5 +40,5 @@ done
 ch2="$ch2 ${tabsh2[${#tabsh2[@]}-1]} ');"
 echo "$ch2"
 su - postgres -c "psql -c \" $ch2\""
-su - postgres -c "psql -c \" select * from tab1\""
+su - postgres -c "psql -c \" select * from tab21\""
 
